@@ -29,8 +29,6 @@ echo "rpcuser=znodeuser"  >> ~/.zclassic/zclassic.conf
 echo "rpcpassword=DontLetTheBastardsGetYouDown" >> ~/.zclassic/zclassic.conf
 echo "addnode=dnsseed.zclassic.org" >> ~/.zclassic/zclassic.conf
 echo "addnode=dnsseed.rotorproject.org" >> ~/.zclassic/zclassic.conf
-echo "rpcuser=username" >> ~/.zclassic/zclassic.conf
-echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/.zclassic/zclassic.conf
 #Zen.conf File
 echo "server=1"  > ~/.zen/zen.conf
 echo "daemon=1"  >> ~/.zen/zen.conf
