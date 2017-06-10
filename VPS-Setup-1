@@ -1,0 +1,59 @@
+#!/bin/sh
+# update & upgrade #
+sudo su
+apt-get update
+apt-get -y upgrade
+apt install openssh-server
+systemctl restart sshd.service
+exit
+sudo apt-get install syslog-ng
+sudo /etc/init.d/syslog-ng start
+sudo apt update
+sudo apt -y install git screen nmap ncdu busybox inxi links unzip python
+sudo apt -y install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+sudo apt -y install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake
+git clone https://github.com/zencashio/zen.git
+git clone https://github.com/z-classic/zclassic.git
+git clone https://github.com/J-Stuhlman/zdash.git
+mkdir -p ~/.zen
+mkdir -p ~/.zdash
+mkdir -p ~/.zclassic
+#Zclassic.conf file
+echo "server=1"  > ~/.zclassic/zclassic.conf
+echo "daemon=1"  >> ~/.zclassic/zclassic.conf
+echo "listen=1"  >> ~/.zclassic/zclassic.conf
+echo "txindex=1"  >> ~/.zclassic/zclassic.conf
+echo "logtimestamps=1"  >> ~/.zclassic/zclassic.conf
+echo "rpcuser=znodeuser"  >> ~/.zclassic/zclassic.conf
+echo "rpcpassword=DontLetTheBastardsGetYouDown" >> ~/.zclassic/zclassic.conf
+echo "addnode=dnsseed.zclassic.org" >> ~/.zclassic/zclassic.conf
+echo "addnode=dnsseed.rotorproject.org" >> ~/.zclassic/zclassic.conf
+echo "rpcuser=username" >> ~/.zclassic/zclassic.conf
+echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/.zclassic/zclassic.conf
+#Zen.conf File
+echo "server=1"  > ~/.zen/zen.conf
+echo "daemon=1"  >> ~/.zen/zen.conf
+echo "listen=1"  >> ~/.zen/zen.conf
+echo "txindex=1"  >> ~/.zen/zen.conf
+echo "logtimestamps=1"  >> ~/.zen/zen.conf
+echo "rpcuser=znodeuser"  >> ~/.zen/zen.conf
+echo "rpcpassword=DontLetTheBastardsGetYouDown"  >> ~/.zen/zen.conf
+#Zdash.conf File
+echo "server=1"  > ~/.zdash/zdash.conf
+echo "daemon=1"  >> ~/.zdash/zdash.conf
+echo "listen=1"  >> ~/.zdash/zdash.conf
+echo "txindex=1"  >> ~/.zdash/zdash.conf
+echo "logtimestamps=1"  >> ~/.zdash/zdash.conf
+echo "rpcuser=znodeuser"  >> ~/.zdash/zdash.conf
+echo "rpcpassword=DontLetTheBastardsGetYouDown"  >> ~/.zdash/zdash.conf
+#Certbot Stuff
+sudo apt -y install software-properties-common python-software-properties
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt update
+sudo apt -y install certbot
+#Last coins bit
+cd zen
+./zcutil/fetch-params.sh
+./zcutil/build.sh -j$(nproc)
