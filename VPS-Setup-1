@@ -56,5 +56,6 @@ sudo apt update
 sudo apt -y install certbot
 #Last coins bit
 cd zen
+git checkout master
 ./zcutil/fetch-params.sh
 ./zcutil/build.sh -j$(nproc)
