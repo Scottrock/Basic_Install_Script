@@ -1,11 +1,10 @@
 #!/bin/sh
 # update & upgrade #
 cd
-sudo su
-apt-get update
-apt-get -y upgrade
-apt install openssh-server
-systemctl restart sshd.service
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt install openssh-server
+sudo systemctl restart sshd.service
 exit
 sudo apt-get install syslog-ng
 sudo /etc/init.d/syslog-ng start
