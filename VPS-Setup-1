@@ -13,9 +13,9 @@ sudo apt -y install fail2ban
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 sudo apt -y install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake
-git clone https://github.com/Scottrock/zen.git
-git clone https://github.com/Scottrock/zclassic.git
-git clone https://github.com/Scottrock/hush.git
+git clone https://github.com/ZencashOfficial/zen.git
+git clone https://github.com/z-classic/zclassic.git
+git clone https://github.com/MyHush/hush.git
 mkdir -p ~/.zen
 mkdir -p ~/.hush
 mkdir -p ~/.zclassic
